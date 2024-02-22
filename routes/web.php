@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// utama
 Route::get('/', function () {
     return view('index');
 });
 
+// dashboard
+Route::get('dashboard', function () {
+    return view('dashboard');
+});
+
 
 // login
-Route::get('login', function () {
-    return view('sesi/login');
-});
+// Route::controller(::class)->group(function () {
+//     Route::get('/register', 'register')->name('register');
+//     Route::post('/store', 'store')->name('store');
+//     Route::get('/sesi/login', 'login')->name('login');
+//     Route::post('/authenticate', 'authenticate')->name('authenticate');
+//     Route::get('/dashboard', 'dashboard')->name('dashboard');
+//     Route::post('/logout', 'logout')->name('logout');
+// });
