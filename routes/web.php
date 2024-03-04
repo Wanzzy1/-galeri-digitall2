@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginRegisterController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -26,12 +27,20 @@ Route::get('dashboard', function () {
 });
 
 
+// login buatan
+// Route::get('/ ', [LoginRegisterController::class, 'login'])->name('login');
+// Route::post('actionlogin', [LoginRegisterController::class, 'actionlogin'])->name('actionlogin');
+
+// Route::get('home', [HomeControllermiddle::class, 'index'])->name('home')->ware('auth');
+// Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');>
+
+
 // login
-// Route::controller(::class)->group(function () {
-//     Route::get('/register', 'register')->name('register');
-//     Route::post('/store', 'store')->name('store');
-//     Route::get('/sesi/login', 'login')->name('login');
-//     Route::post('/authenticate', 'authenticate')->name('authenticate');
-//     Route::get('/dashboard', 'dashboard')->name('dashboard');
-//     Route::post('/logout', 'logout')->name('logout');
-// });
+Route::controller(LoginRegisterController::class)->group(function () {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/dashboard', 'dashboard')->name('dashboard');
+    Route::post('/logout', 'logout')->name('logout');
+});
